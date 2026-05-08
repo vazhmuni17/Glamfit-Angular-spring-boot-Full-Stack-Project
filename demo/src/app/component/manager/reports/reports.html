@@ -1,0 +1,59 @@
+<div class="space-y-10 animate__animated animate__fadeIn">
+  
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div>
+      <h1 class="text-3xl font-heading font-bold text-brand-chocolate">Sales & Growth Reports</h1>
+      <p class="text-gray-500 mt-1">Analyze your business performance and export data</p>
+    </div>
+    <div class="flex gap-3">
+      <button (click)="exportReport('Excel')" class="px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-xl text-sm font-bold hover:bg-gray-50 transition shadow-sm flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+        Excel
+      </button>
+      <button (click)="exportReport('PDF')" class="px-6 py-3 bg-brand-chocolate text-brand-gold rounded-xl text-sm font-bold hover:bg-brand-brown transition shadow-xl flex items-center gap-2 uppercase tracking-widest">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+        Export PDF
+      </button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div *ngFor="let stat of reportStats" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-gray-400">{{ stat.period }}</span>
+        <span class="text-xs font-bold px-2 py-1 rounded-full" [ngClass]="stat.positive ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'">
+          {{ stat.change }}
+        </span>
+      </div>
+      <h3 class="text-3xl font-bold text-brand-chocolate mb-1">{{ stat.value }}</h3>
+      <p class="text-sm font-medium text-gray-500">{{ stat.label }}</p>
+    </div>
+  </div>
+
+  <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+    <div class="flex items-center justify-between mb-10">
+      <h3 class="text-xl font-heading font-bold text-brand-chocolate">Monthly Growth Chart</h3>
+      <select class="px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs font-bold text-gray-500 outline-none">
+        <option>Year 2026</option>
+        <option>Year 2025</option>
+      </select>
+    </div>
+    
+    <!-- Placeholder for Chart -->
+    <div class="h-80 w-full bg-gray-50 rounded-2xl flex items-end justify-between px-10 pb-6 relative overflow-hidden group">
+       <div class="absolute inset-x-0 bottom-0 h-[1px] bg-gray-200"></div>
+       <div class="w-10 bg-brand-gold/20 rounded-t-lg group-hover:bg-brand-gold/40 transition-all cursor-pointer" style="height: 40%"></div>
+       <div class="w-10 bg-brand-gold/20 rounded-t-lg group-hover:bg-brand-gold/40 transition-all cursor-pointer" style="height: 55%"></div>
+       <div class="w-10 bg-brand-gold/20 rounded-t-lg group-hover:bg-brand-gold/40 transition-all cursor-pointer" style="height: 80%"></div>
+       <div class="w-10 bg-brand-gold/20 rounded-t-lg group-hover:bg-brand-gold/40 transition-all cursor-pointer" style="height: 65%"></div>
+       <div class="w-10 bg-brand-gold/20 rounded-t-lg group-hover:bg-brand-gold/40 transition-all cursor-pointer" style="height: 90%"></div>
+       <div class="w-10 bg-brand-gold/20 rounded-t-lg group-hover:bg-brand-gold/40 transition-all cursor-pointer" style="height: 75%"></div>
+       <div class="w-10 bg-brand-gold/20 rounded-t-lg group-hover:bg-brand-gold/40 transition-all cursor-pointer" style="height: 85%"></div>
+       <p class="absolute inset-0 flex items-center justify-center text-gray-300 font-bold uppercase tracking-widest text-xs pointer-events-none">Interactive Chart Visualization</p>
+    </div>
+    <div class="flex justify-between px-1 transition text-[10px] font-bold text-gray-400 mt-4 uppercase tracking-widest">
+      <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span>
+    </div>
+  </div>
+
+</div>

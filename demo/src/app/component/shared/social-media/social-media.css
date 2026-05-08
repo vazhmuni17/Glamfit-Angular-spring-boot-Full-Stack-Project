@@ -1,0 +1,21 @@
+@keyframes social-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-social-bounce {
+  animation: social-bounce 3s infinite ease-in-out;
+}
+
+.delay-150 {
+  animation-delay: 0.15s;
+}
+
+/* Glassmorphism background for the labels */
+.group:hover {
+  backdrop-filter: blur(4px);
+}

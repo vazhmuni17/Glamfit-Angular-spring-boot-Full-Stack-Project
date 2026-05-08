@@ -1,0 +1,40 @@
+.nav-link {
+  position: relative;
+}
+
+.nav-link > a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* underline base */
+.nav-link > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #D6B36A;
+  transition: width 0.35s ease;
+}
+
+/* hover underline */
+.nav-link:hover > a::after {
+  width: 100%;
+}
+
+/* ✅ ACTIVE ROUTE UNDERLINE */
+.nav-link.active-link > a::after {
+  width: 100%;
+}
+
+/* active text color */
+.nav-link.active-link > a {
+  color: #D6B36A;
+}
+/* Prevent background scrolling when search is open */
+body.overflow-hidden {
+  overflow: hidden;
+}

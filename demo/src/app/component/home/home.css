@@ -1,0 +1,59 @@
+.fixed-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2b1b14, #000, #5b3d2d);
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.fixed-loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Loader box */
+.loader-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Spinner */
+.luxury-spinner {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid rgba(203, 176, 136, 0.25);
+  border-top-color: #cbb088;
+  animation: spin 1s linear infinite;
+}
+
+/* Text */
+.loader-box p {
+  color: #cbb088;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+/* Spin animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+/* 🔥 Force "Experience" to new line on small screens */
+@media (max-width: 480px) {
+  .mobile-break {
+    display: block;
+  }
+}

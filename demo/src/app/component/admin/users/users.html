@@ -1,0 +1,211 @@
+<div class="space-y-8 animate__animated animate__fadeIn">
+
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div>
+      <h1 class="text-3xl font-heading font-bold text-brand-chocolate">User Management</h1>
+      <p class="text-gray-500 mt-1">Manage all registered users and their access levels</p>
+    </div>
+    <button (click)="openModal()"
+      class="px-6 py-3 bg-brand-chocolate text-brand-gold rounded-xl text-sm font-bold hover:bg-brand-brown transition shadow-xl active:scale-95 uppercase tracking-widest flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H9" />
+      </svg>
+      Add New User
+    </button>
+  </div>
+
+  <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+    <!-- Table Header / Filters -->
+    <div class="p-6 border-b border-gray-50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="relative max-w-xs w-full">
+        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </span>
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search users..."
+          class="block w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/20 focus:border-brand-gold transition-all">
+      </div>
+      <div class="flex items-center gap-3">
+        <select [(ngModel)]="selectedRole"
+          class="px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/20 focus:border-brand-gold">
+          <option value="All Roles">All Roles</option>
+          <option value="Trainee">Trainee</option>
+          <option value="Manager">Manager</option>
+          <option value="ADMIN">Admin</option>
+        </select>
+        <select [(ngModel)]="selectedStatus"
+          class="px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/20 focus:border-brand-gold">
+          <option value="All Status">All Status</option>
+          <option value="Active">Active</option>
+          <option value="Blocked">Blocked</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Users Table -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-left">
+        <thead class="bg-gray-50 text-xs uppercase tracking-wider text-gray-400 font-bold">
+          <tr>
+            <th class="px-6 py-4">User</th>
+            <th class="px-6 py-4">Role</th>
+            <th class="px-6 py-4">Phone Number</th>
+            <th class="px-6 py-4">Status</th>
+            <th class="px-6 py-4">Joined Date</th>
+            <th class="px-6 py-4 text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-50">
+          <tr *ngFor="let user of filteredUsers" class="hover:bg-gray-50/50 transition-colors group">
+            <td class="px-6 py-4">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-brown font-bold flex items-center justify-center border border-brand-gold/20">
+                  {{ (user.name || user.email || '?').charAt(0) | uppercase }}
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800">{{ user.name || '—' }}</div>
+                  <div class="text-xs text-gray-500 font-medium">{{ user.email }}</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-md"
+                [ngClass]="user.role === 'ADMIN' ? 'bg-purple-100 text-purple-600' : 'bg-gray-100 text-gray-600'">
+                {{ user.role }}
+              </span>
+            </td>
+            <td class="px-6 py-4">
+              <span class="text-sm text-gray-600">
+                {{ user.phone || 'N/A' }}
+              </span>
+            </td>
+            <td class="px-6 py-4">
+              <span class="text-[10px] uppercase font-bold px-2.5 py-1 rounded-full"
+                [ngClass]="user.status === 'Active' || user.status === 'ACTIVE' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'">
+                {{ user.status || 'Unknown' }}
+              </span>
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-500 font-medium font-body">
+              {{ user.joined | date:'mediumDate' }}
+            </td>
+            <td class="px-6 py-4 text-right">
+              <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button (click)="toggleStatus(user)" [title]="user.status === 'Active' ? 'Block User' : 'Unblock User'"
+                  class="p-2 rounded-lg hover:bg-gray-100 text-gray-500 hover:text-amber-500 transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </button>
+                <button (click)="editUser(user)"
+                  class="p-2 rounded-lg hover:bg-gray-100 text-gray-500 hover:text-blue-500 transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </button>
+                <button (click)="deleteUser(user.id)"
+                  class="p-2 rounded-lg hover:bg-red-50 text-red-400 hover:text-red-600 transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="p-6 border-t border-gray-50 flex items-center justify-between">
+      <p class="text-sm text-gray-500">Showing <span class="font-bold text-gray-700">{{ filteredUsers.length > 0 ? 1 : 0
+          }}</span> to <span class="font-bold text-gray-700">{{ filteredUsers.length }}</span> of <span
+          class="font-bold text-gray-700">{{
+          filteredUsers.length }}</span> results</p>
+      <div class="flex items-center gap-2">
+        <button
+          class="p-2 rounded-lg border border-gray-200 text-gray-400 hover:bg-gray-50 transition disabled:opacity-50"
+          disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button class="px-4 py-2 rounded-lg bg-brand-gold text-white font-bold text-xs">1</button>
+        <button
+          class="p-2 rounded-lg border border-gray-200 text-gray-400 hover:bg-gray-50 transition disabled:opacity-50"
+          disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add User Modal -->
+<div *ngIf="showAddModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+  <div
+    class="bg-white rounded-3xl w-full max-w-md shadow-2xl overflow-hidden animate__animated animate__zoomIn animate__faster">
+    <div class="p-8">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-brand-chocolate">Add New User</h2>
+        <button (click)="closeModal()" class="text-gray-400 hover:text-gray-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <form (ngSubmit)="saveUser()" #userForm="ngForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-1">Full Name</label>
+          <input type="text" name="name" [(ngModel)]="newUser.name" required
+            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold/20 focus:border-brand-gold transition-all">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-1">Email Address</label>
+          <input type="email" name="email" [(ngModel)]="newUser.email" required
+            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold/20 focus:border-brand-gold transition-all">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-1">Phone Number</label>
+          <input type="tel" name="phone" [(ngModel)]="newUser.phone" required
+            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold/20 focus:border-brand-gold transition-all">
+        </div>
+        <div *ngIf="!newUser['id']">
+          <label class="block text-sm font-bold text-gray-700 mb-1">Password</label>
+          <input type="password" name="password" [(ngModel)]="newUser.password" required
+            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold/20 focus:border-brand-gold transition-all">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-1">Role</label>
+          <select name="role" [(ngModel)]="newUser.role"
+            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold/20 focus:border-brand-gold transition-all">
+            <option value="Manager">Manager</option>
+            <option value="Trainee">Trainee</option>
+          </select>
+        </div>
+
+        <div class="pt-4 flex items-center gap-3">
+          <button type="button" (click)="closeModal()"
+            class="flex-1 px-6 py-3 border border-gray-200 text-gray-600 rounded-xl font-bold hover:bg-gray-50 transition transition-all uppercase tracking-widest text-xs">
+            Cancel
+          </button>
+          <button type="submit" [disabled]="!userForm.form.valid"
+            class="flex-1 px-6 py-3 bg-brand-chocolate text-brand-gold rounded-xl font-bold hover:bg-brand-brown transition transition-all shadow-lg active:scale-95 uppercase tracking-widest text-xs disabled:opacity-50">
+            Create User
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

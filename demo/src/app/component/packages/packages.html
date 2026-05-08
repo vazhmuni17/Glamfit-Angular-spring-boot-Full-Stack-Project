@@ -1,0 +1,293 @@
+<!-- starting page -->
+
+<section class="relative w-full h-screen overflow-hidden reveal" [class.show]="startAnimations">
+
+  <!-- Background Video -->
+  <video #bgVideo muted loop playsinline preload="auto" (canplaythrough)="onVideoReady()"
+    class="absolute inset-0 w-full h-full object-cover">
+
+    <source src="assets/video/package.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/85"></div>
+
+  <!-- HERO CONTENT (LOCKED UNTIL VIDEO READY) -->
+  <div class="relative z-10 flex flex-col items-center justify-center
+           h-full px-5 text-center
+           translate-y-[-1.5rem] md:translate-y-0
+           animate-fade-in">
+
+    <!-- Small Tag -->
+    <span class="font-body uppercase
+             tracking-[0.35em] md:tracking-[0.45em]
+             text-[10px] md:text-sm
+             text-white mb-6 md:mb-8
+             opacity-0 animate-fade-up delay-200">
+      Our Packages
+    </span>
+
+    <!-- Heading (Mobile + Tablet only) -->
+    <h1 class="font-heading
+             text-[2.2rem] md:text-[3.6rem]
+             font-semibold
+             text-white
+             leading-tight md:leading-snug
+             mb-5 md:mb-6
+             letter-animate  
+             ">
+      <span>P</span><span>r</span><span>e</span><span>m</span><span>i</span><span>u</span><span>m</span>
+      <span>&nbsp;</span>
+      <span>B</span><span>e</span><span>a</span><span>u</span><span>t</span><span>y</span>
+      <span>&nbsp;</span>
+      <span class="mobile-break">
+        <span>E</span><span>x</span><span>p</span><span>e</span><span>r</span><span>i</span><span>e</span><span>n</span><span>c</span><span>e</span>
+      </span>
+    </h1>
+
+    <!-- Divider -->
+    <div class="h-[1px]
+             w-20 md:w-28
+             bg-white/80
+             mb-7 md:mb-10
+             opacity-0 animate-line delay-600"></div>
+
+    <!-- Description -->
+    <p class="font-body
+             max-w-[90%] md:max-w-2xl
+             text-[13px] md:text-base
+             leading-[1.85] md:leading-[1.9]
+             text-white/90
+             opacity-0 animate-fade-up delay-800">
+      Glamfit Asthetic and Beauty Lounge your go to destination for premium beauty and
+      skincare service's in nelson Manickam road chennai
+    </p>
+
+  </div>
+</section>
+
+<section class="relative h-[300px] md:h-[360px] flex items-center justify-center overflow-hidden reveal">
+
+  <!-- Background Logo -->
+  <img src="logo/logo1.png" alt="logo background"
+    class="absolute inset-0 w-full h-full object-contain opacity-50 pointer-events-none" />
+
+  <!-- Front Content -->
+  <div class="relative z-10 flex flex-col items-center text-center px-6">
+
+    <!-- Gallery Title -->
+    <h1 class="text-3xl md:text-4xl font-serif text-[#5B3D2D] letter-animate">
+      <span>P</span><span>a</span><span>c</span><span>k</span><span>a</span><span>g</span><span>e</span><span>s</span>
+    </h1>
+
+    <!-- Divider -->
+    <div class="w-16 md:w-20 h-[1px] bg-[#CBB088] mt-3 mb-6 animate-line"></div>
+
+    <!-- Description -->
+    <p class="max-w-2xl text-sm md:text-base text-gray-600 leading-relaxed font-light reveal-img ">
+      Our packages combine essential beauty services to give you complete care, value, and a radiant transformation.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+
+<!-- PACKAGE DETAILS SECTION -->
+<section id="faq" class="bg-white py-20 px-4 sm:px-6 lg:px-12 reveal">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-serif text-[#5B3D2D] mb-4 reveal ">
+        Exclusive Beauty Packages
+      </h2>
+      <div class="w-20 h-[1px] bg-[#CBB088] mx-auto mb-6"></div>
+      <p class="max-w-2xl mx-auto text-gray-600 text-sm md:text-base leading-relaxed reveal-img ">
+        Discover our specially designed packages that offer luxury care at competitive prices.
+      </p>
+    </div>
+
+    <!-- Package Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
+
+      <!-- DYNAMIC CARD -->
+      <div *ngFor="let plan of filteredPlans; let i = index"
+        class="group rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 bg-white border border-gray-100 flex flex-col reveal-img"
+        [ngClass]="{'delay-200': i % 3 === 0, 'delay-400': i % 3 === 1, 'delay-600': i % 3 === 2}">
+
+        <!-- Image -->
+        <div class="relative h-60 overflow-hidden">
+          <img [src]="plan.imageUrl || 'assets/services/treatment.png'" [alt]="plan.name"
+            class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+
+          <!-- Discount Badge -->
+          <div *ngIf="plan.discount"
+            class="absolute top-4 right-4 bg-brand-gold text-brand-chocolate text-[10px] font-bold px-3 py-1.5 rounded-full shadow-lg">
+            {{ plan.discount }}% OFF
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-8 flex-1 flex flex-col">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-xl font-heading font-bold text-brand-chocolate">
+              {{ plan.name }}
+            </h3>
+            <div class="text-right">
+              <div *ngIf="plan.discount" class="text-xs text-gray-400 line-through">₹{{ plan.price }}</div>
+              <div class="text-xl font-bold text-brand-gold">₹{{ plan.discount ? (plan.price - (plan.price *
+                plan.discount / 100)) : plan.price }}</div>
+            </div>
+          </div>
+
+          <p class="text-sm text-gray-500 mb-8 flex-1 leading-relaxed line-clamp-3">
+            {{ plan.description }}
+          </p>
+
+          <div class="flex items-center gap-4 text-[10px] uppercase font-bold tracking-widest text-[#CBB088] mb-6">
+            <span class="flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              {{ plan.duration || 'Session' }}
+            </span>
+          </div>
+
+          <button (click)="addToCart(plan)" [disabled]="isBooked(plan.name)"
+            class="w-full py-4 rounded-xl border-2 font-bold tracking-widest uppercase text-[10px] transition-all duration-300 transform active:scale-95"
+            [ngClass]="{
+                    'bg-green-600 border-green-600 text-white cursor-default': isBooked(plan.name),
+                    'border-brand-gold text-brand-chocolate hover:bg-brand-gold hover:text-white': !isBooked(plan.name)
+                  }">
+            {{ isBooked(plan.name) ? 'Selection Added' : 'Reserve Plan' }}
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="filteredPlans.length === 0"
+      class="text-center py-20 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
+      <p class="text-gray-400 font-serif italic text-lg">No packages available at the moment. Please check back later.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS & CTA SECTION -->
+<section id="testimonials" class="bg-[#FAF7F3] py-20 px-4 sm:px-6 lg:px-12 reveal">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+    <!-- LEFT : TESTIMONIALS -->
+    <div class="reveal-img">
+      <h2 class="text-3xl md:text-4xl font-serif text-[#5B3D2D] mb-4">
+        Loved by Our Clients
+      </h2>
+      <div class="w-16 h-[1px] bg-[#CBB088] mb-8"></div>
+
+      <div class="space-y-8">
+
+        <!-- Review -->
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">
+            “Absolutely loved the Premium Package! The staff were so professional
+            and the facial left my skin glowing for days.”
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-medium text-[#5B3D2D]">
+              – Priya S
+            </span>
+            <span class="text-[#CBB088] text-sm">★★★★★</span>
+          </div>
+        </div>
+
+        <!-- Review -->
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">
+            “Glamfit is my go-to salon now. Clean, classy, and worth every rupee.
+            Highly recommend their packages.”
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-medium text-[#5B3D2D]">
+              – Anitha R
+            </span>
+            <span class="text-[#CBB088] text-sm">★★★★★</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT : CTA -->
+    <div class="bg-[#5B3D2D] text-white rounded-3xl p-10 text-center shadow-xl reveal-img-right">
+      <h3 class="text-2xl md:text-3xl font-serif mb-4">
+        Ready for Your Glow-Up?
+      </h3>
+      <p class="text-sm md:text-base text-[#EADDC7] mb-8 leading-relaxed">
+        Choose your perfect beauty package and let our experts take care of you.
+        Your transformation starts here.
+      </p>
+
+      <button [routerLink]="'/booking'" class="w-full md:w-auto px-10 py-4 rounded-full
+               bg-[#CBB088] text-[#5B3D2D]
+               font-medium hover:bg-white transition">
+        Book Your Appointment
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section id="faq" class="bg-white py-20 px-4 sm:px-6 lg:px-12 reveal">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-serif text-[#5B3D2D] mb-4">
+        Frequently Asked Questions
+      </h2>
+      <div class="w-20 h-[1px] bg-[#CBB088] mx-auto mb-6"></div>
+      <p class="text-gray-600 text-sm md:text-base">
+        Everything you need to know before booking your beauty package.
+      </p>
+    </div>
+
+    <!-- FAQ LIST -->
+    <div class="space-y-6">
+
+      <!-- FAQ ITEM -->
+      <details class="group bg-[#FAF7F3] rounded-xl p-6 cursor-pointer">
+        <summary class="flex justify-between items-center text-[#5B3D2D] font-medium text-base">
+          What is included in the beauty packages?
+          <span class="text-[#CBB088] group-open:rotate-180 transition">⌄</span>
+        </summary>
+        <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+          Our packages include a combination of skincare, hair care, grooming,
+          and relaxation services. Each package is clearly listed with services
+          so you know exactly what you’re getting.
+        </p>
+      </details>
+
+      <details class="group bg-[#FAF7F3] rounded-xl p-6 cursor-pointer">
+        <summary class="flex justify-between items-center text-[#5B3D2D] font-medium text-base">
+          Can I customize a package?
+          <span class="text-[#CBB088] group-open:rotate-180 transition">⌄</span>
+        </summary>
+        <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+          Yes! Our team can customize services based on your needs.
+          Please contact us or mention your preference while booking.
+        </p>
+      </details>
+
+    </div>
+  </div>
+</section>

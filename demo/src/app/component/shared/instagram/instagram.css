@@ -1,0 +1,45 @@
+.insta-img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: transform 0.5s ease;
+}
+
+.insta-img:hover {
+  transform: scale(1.08);
+}
+
+/* GPU optimization */
+.loop-left,
+.loop-right {
+  will-change: transform;
+}
+
+/* LEFT infinite loop */
+.loop-left {
+  animation: loopLeft 25s linear infinite;
+}
+
+/* RIGHT infinite loop */
+.loop-right {
+  animation: loopRight 25s linear infinite;
+}
+
+@keyframes loopLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes loopRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

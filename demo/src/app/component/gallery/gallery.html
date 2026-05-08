@@ -1,0 +1,369 @@
+<!-- Logo -->
+
+<section class="relative h-[300px] md:h-[360px] flex items-center justify-center overflow-hidden reveal mt-10 mb-15">
+
+
+
+  <!-- Front Content -->
+  <div class="relative z-10 flex flex-col items-center text-center px-6">
+
+    <!-- Gallery Title -->
+    <h1 class="text-3xl md:text-4xl font-serif text-[#5B3D2D] letter-animate">
+      <span>G</span><span>a</span><span>l</span><span>l</span><span>e</span><span>r</span><span>y</span>
+    </h1>
+
+    <!-- Divider -->
+    <div class="w-16 md:w-20 h-[1px] bg-[#CBB088] mt-3 mb-6 animate-line"></div>
+
+    <!-- Description -->
+    <p class="max-w-2xl text-sm md:text-base text-gray-600 leading-relaxed font-light reveal-img ">
+      Glamfit Gallery showcases elegant art and photography, celebrating creativity,
+      beauty, and expression through captivating collections that inspire hearts and minds.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- 3D CAROUSEL SECTION -->
+<section *ngIf="carouselItems.length > 0" class="py-20 bg-white overflow-hidden perspective-3d">
+  <div class="max-w-7xl mx-auto px-5 text-center mb-16 reveal">
+    <h2 class="text-3xl md:text-4xl font-serif text-[#5B3D2D]">Showcase Highlights</h2>
+    <div class="w-16 h-[1px] bg-[#CBB088] mx-auto mt-4"></div>
+  </div>
+
+  <div class="carousel-container relative h-[400px] md:h-[500px]">
+    <div class="carousel-3d-track" [style.transform]="'rotateY(' + (carouselIndex * -60) + 'deg)'">
+      <div *ngFor="let item of carouselItems; let i = index" class="carousel-item-3d group"
+        [style.transform]="'rotateY(' + (i * 60) + 'deg) translateZ(350px)'" [class.active]="i === carouselIndex">
+
+        <!-- Image Card -->
+        <div
+          class="w-[280px] md:w-[350px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 bg-black relative">
+          <img [src]="item.image || item.beforeImage"
+            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+
+          <!-- Label Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-left">
+            <h4 class="text-white font-serif text-lg">{{item.title}}</h4>
+            <p class="text-brand-gold text-xs uppercase tracking-widest mt-2">
+              Highlight
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="absolute inset-x-0 bottom-0 flex justify-center gap-6 z-20 pb-10">
+      <button (click)="prevCarousel()"
+        class="w-12 h-12 rounded-full border border-[#CBB088] flex items-center justify-center text-[#5B3D2D] hover:bg-[#CBB088] hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button (click)="nextCarousel()"
+        class="w-12 h-12 rounded-full border border-[#CBB088] flex items-center justify-center text-[#5B3D2D] hover:bg-[#CBB088] hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SECTION  -->
+<section class="bg-[#FAF8F5] py-24 reveal">
+  <div class="max-w-7xl mx-auto px-5">
+
+    <!-- Heading -->
+    <div class="text-center mb-16 reveal">
+      <h2 class="font-serif text-[#5B3D2D] tracking-wide letter-animate text-3xl md:text-4xl xl:text-5xl leading-tight">
+        <span>O</span><span>u</span><span>r</span><span>&nbsp;</span>
+        <span>A</span><span>r</span><span>t</span><span>i</span><span>s</span><span>t</span><span>r</span><span>y</span><span>&nbsp;</span>
+        <span>&</span><span>&nbsp;</span>
+        <span>M</span><span>o</span><span>m</span><span>e</span><span>n</span><span>t</span><span>s</span>
+      </h2>
+      <div class="w-24 h-[1px] bg-[#CBB088] mx-auto mt-6 mb-8 animate-line"></div>
+      <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        Explore our curated collection of transformations and beautiful snapshots.
+        From expert hair styling to cinematic highlights, every moment represents our passion for beauty.
+      </p>
+    </div>
+
+    <!-- GRID WRAPPER -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+
+      <div *ngFor="let item of galleryItems; let i = index"
+        class="group reveal-img bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 h-full flex flex-col"
+        [class.delay-200]="i % 4 === 0" [class.delay-400]="i % 4 === 1" [class.delay-600]="i % 4 === 2"
+        [class.delay-800]="i % 4 === 3">
+
+        <!-- IMAGE AREA -->
+        <div class="relative aspect-square overflow-hidden bg-gray-100">
+
+          <!-- Split Image (Transformation) -->
+          <ng-container *ngIf="item.beforeImage && item.afterImage">
+            <div class="flex h-full w-full">
+              <div class="w-1/2 relative h-full overflow-hidden border-r border-white/20">
+                <img [src]="item.beforeImage"
+                  class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                <div
+                  class="absolute bottom-3 left-3 px-2 py-1 bg-black/40 backdrop-blur-md rounded text-[9px] text-white font-bold uppercase">
+                  Before</div>
+              </div>
+              <div class="w-1/2 relative h-full overflow-hidden">
+                <img [src]="item.afterImage"
+                  class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                <div
+                  class="absolute bottom-3 right-3 px-2 py-1 bg-[#D6B36A]/80 backdrop-blur-md rounded text-[9px] text-white font-bold uppercase shadow-lg">
+                  After</div>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- Fallback single image if it's the mock data missing afterImage -->
+          <ng-container *ngIf="item.image">
+            <img [src]="item.image" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              alt="{{ item.title }}">
+          </ng-container>
+
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Gallery Moment</span>
+          </div>
+          <h4 class="text-xl font-serif text-[#5B3D2D] mb-3 group-hover:text-[#D6B36A] transition-colors line-clamp-1">
+            {{ item.title }}</h4>
+          <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed flex-1">{{ item.description }}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-b from-[#FAF8F5] to-white py-24 px-4 sm:px-6 lg:px-12 reveal">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-20 reveal-img">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-serif text-[#5B3D2D] tracking-wide letter-animate">
+        <span>G</span><span>l</span><span>a</span><span>m</span><span>f</span><span>i</span><span>t</span>
+        <span>&nbsp;</span>
+        <span>P</span><span>r</span><span>o</span>
+        <span>&nbsp;</span>
+        <span>A</span><span>c</span><span>a</span><span>d</span><span>e</span><span>m</span><span>y</span>
+      </h2>
+      <div class="w-24 h-[1px] bg-[#CBB088] mx-auto mt-6 mb-8 animate-line"></div>
+      <p class="text-gray-600 max-w-3xl mx-auto text-base md:text-lg">
+        Where passion meets profession in the world of beauty education.
+      </p>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start ">
+
+      <!-- LEFT CONTENT -->
+
+      <div class="space-y-10 reveal-img">
+
+        <!-- Intro -->
+        <div>
+          <p class="text-gray-700 leading-relaxed text-lg">
+            GlamFit Pro Academy was launched on
+            <strong>28th July 2025</strong> with a vision to empower women through
+            professional beauty education and real-world career opportunities.
+          </p>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
+
+          <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+            <h4 class="text-lg font-semibold text-[#5B3D2D] mb-2">
+              Practical Training
+            </h4>
+            <p class="text-gray-600 text-sm">
+              Hands-on sessions with real clients, tools, machines, and live demos.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+            <h4 class="text-lg font-semibold text-[#5B3D2D] mb-2">
+              Professional Development
+            </h4>
+            <p class="text-gray-600 text-sm">
+              Personality development, confidence building & industry grooming.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+            <h4 class="text-lg font-semibold text-[#5B3D2D] mb-2">
+              Academic Excellence
+            </h4>
+            <p class="text-gray-600 text-sm">
+              Theory exams, viva, presentations, resume preparation & assessments.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+            <h4 class="text-lg font-semibold text-[#5B3D2D] mb-2">
+              Career Support
+            </h4>
+            <p class="text-gray-600 text-sm">
+              Internship & placement assistance at GlamFit Aesthetic & Beauty Lounge.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Highlight Strip -->
+        <div class="bg-[#F3E8D9] rounded-2xl p-6">
+          <p class="text-[#5B3D2D] font-medium text-center">
+            Affordable education • Industry exposure • Certified professionals
+          </p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE IMAGE -->
+
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl group reveal-img-right">
+
+        <!-- IMAGE -->
+        <img src="assets/gallery/glamfit.jpeg" alt="GlamFit Academy" class="w-full h-[480px] object-cover
+           transition-transform duration-700
+           group-hover:scale-105" />
+
+        <!-- DARK OVERLAY -->
+        <div class="absolute inset-0 bg-black/30"></div>
+
+        <!-- BOTTOM CONTACT BUTTON -->
+        <a href="tel:8122718901" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+          <span class="flex items-center gap-3 px-8 py-3 rounded-full
+             bg-[#CBB088] text-white text-base font-medium
+             shadow-xl hover:bg-[#b79d73] transition">
+            📞 Contact Us
+          </span>
+        </a>
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+  </div>
+</section>
+
+
+<section class="bg-[#FAF8F5] py-16 reveal" #counterSection>
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+      <div>
+        <h3 class="text-4xl font-bold text-[#5B3D2D]" #counter data-target="500">0</h3>
+        <p class="text-gray-600 mt-2">Students Trained</p>
+      </div>
+
+      <div>
+        <h3 class="text-4xl font-bold text-[#5B3D2D]" #counter data-target="25">0</h3>
+        <p class="text-gray-600 mt-2">Professional Courses</p>
+      </div>
+
+      <div>
+        <h3 class="text-4xl font-bold text-[#5B3D2D]" #counter data-target="90">0</h3>
+        <p class="text-gray-600 mt-2">Placement Support %</p>
+      </div>
+
+      <div>
+        <h3 class="text-4xl font-bold text-[#5B3D2D]" #counter data-target="10">0</h3>
+        <p class="text-gray-600 mt-2">Expert Trainers</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="bg-white py-20 reveal">
+  <div class="max-w-7xl mx-auto px-6 ">
+
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+
+      <h2 class="text-4xl xl:text-5xl font-serif text-[#5B3D2D] tracking-wide letter-animate">
+        <span>O</span><span>u</span><span>r</span>
+        <span>&nbsp;</span>
+        <span>P</span><span>r</span><span>o</span><span>f</span><span>e</span><span>s</span><span>s</span><span>i</span><span>o</span><span>n</span><span>a</span><span>l</span>
+        <span>&nbsp;</span>
+        <span>C</span><span>o</span><span>u</span><span>r</span><span>s</span><span>e</span><span>s</span>
+      </h2>
+
+
+      <div class="w-24 h-[1px] bg-[#CBB088] mx-auto mt-6"></div>
+    </div>
+
+    <!-- Dynamic Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 transition-all duration-500 reveal">
+
+      <div *ngFor="let course of courses"
+        class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition group">
+        <div class="relative">
+          <img [src]="course.image" class="h-56 w-full object-cover group-hover:scale-105 transition duration-500" />
+
+          <!-- <span class="absolute top-4 left-4 text-white text-xs px-3 py-1 rounded-full" [ngClass]="course.levelColor">
+            {{ course.level }}
+          </span> -->
+        </div>
+
+        <div class="p-6 space-y-4">
+          <!-- <p class="text-[#C94A4A] font-semibold">
+            ₹{{ course.price | number }}
+          </p> -->
+
+          <h3 class="text-xl font-semibold text-[#5B3D2D]">
+            {{ course.title }}
+          </h3>
+
+          <p class="text-gray-600 text-sm">
+            {{ course.description }}
+          </p>
+
+          <!-- Rating -->
+          <div class="flex items-center text-yellow-500">
+            {{ course.stars }}
+            <span class="text-gray-500 text-sm ml-2">
+              ({{ course.rating }})
+            </span>
+          </div>
+
+          <!-- Info -->
+          <!-- <div class="flex justify-between text-sm text-gray-500 pt-4">
+            <span>⏱ {{ course.duration }}</span>
+            <span>👩‍🎓 {{ course.students }} Students</span>
+          </div> -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<app-instagram></app-instagram>

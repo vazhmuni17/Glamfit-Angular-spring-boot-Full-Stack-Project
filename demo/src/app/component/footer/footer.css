@@ -1,0 +1,21 @@
+/* ===== FOOTER LINK UNDERLINE EFFECT ===== */
+.footer-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #D6B36A;
+  transition: width 0.35s ease;
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}

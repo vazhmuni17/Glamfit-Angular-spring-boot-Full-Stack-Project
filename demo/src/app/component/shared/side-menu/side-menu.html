@@ -1,0 +1,70 @@
+<nav class="fixed inset-0 z-[999]">
+
+  <!-- Overlay -->
+  <div
+    class="absolute inset-0 bg-black/50 cursor-pointer"
+    (click)="closeMenu()"
+  ></div>
+
+  <!-- Sidebar -->
+  <div
+    class="relative z-10 bg-white w-72 h-full shadow-2xl"
+  >
+
+    <!-- Close -->
+    <div class="flex justify-end p-4">
+      <button 
+        class="cursor-pointer p-2 hover:bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center"
+        (click)="closeMenu()">
+        ✕
+      </button>
+    </div>
+
+    <!-- Contact -->
+    <div class="flex flex-col gap-4 p-6 items-center text-sm">
+      <div class="flex gap-2 items-center">
+        <img src="icons/phone-call.svg" class="w-5" alt="phone">
+        <a  href="tel:8122718901"><span>81227 18901</span></a>
+      </div>
+      <div class="flex gap-2 items-center">
+        <img src="icons/email.svg" class="w-5" alt="email">
+        glamfit14@gmail.com
+      </div>
+    </div>
+
+    <!-- Menu -->
+    <ul class="flex flex-col font-semibold text-[#705b3c]">
+      <li class="border-t hover:bg-amber-50">
+        <a class="block p-4" routerLink="home" (click)="closeMenu()">Home</a>
+      </li>
+      <li class="border-t hover:bg-amber-50">
+        <a class="block p-4" routerLink="treatment-services" (click)="closeMenu()">Treatment Services</a>
+      </li>
+      <li class="border-t hover:bg-amber-50">
+        <a class="block p-4" routerLink="beauty-services" (click)="closeMenu()">Beauty Services</a>
+      </li>
+      <li class="border-t hover:bg-amber-50">
+        <a class="block p-4" routerLink="gallery" (click)="closeMenu()">Gallery</a>
+      </li>
+      <li class="border-t hover:bg-amber-50">
+        <a class="block p-4" routerLink="packages" (click)="closeMenu()">Packages</a>
+      </li>
+      <li class="border-t hover:bg-amber-50">
+        <a class="block p-4" routerLink="aboutus" (click)="closeMenu()">About Us</a>
+      </li>
+      <li class="border-y hover:bg-amber-50">
+        <a class="block p-4" routerLink="contactus" (click)="closeMenu()">Contact Us</a>
+      </li>
+    </ul>
+
+    <!-- Social -->
+    <div class="flex justify-center mt-6 mr-5">
+      <ul class="flex items-center gap-5">
+    <li><a href="https://www.facebook.com/people/Glamfit-Aesthetics-Beauty-lounge/61573514687570/" target="_blank" class=""><img src="icons/facebook.svg " class="w-8.5 h-8 " alt=""></a></li>
+    <li><a href="https://www.instagram.com/glamfit_aestheticsbeautylounge/" target="_blank"><img src="icons/instagram.png" class="w-5 h-5" alt=""></a></li>
+</ul>
+    </div>
+
+  </div>
+
+</nav>

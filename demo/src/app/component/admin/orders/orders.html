@@ -1,0 +1,89 @@
+<div class="space-y-8 animate__animated animate__fadeIn">
+  
+  <div>
+    <h1 class="text-3xl font-heading font-bold text-brand-chocolate">Bookings Management</h1>
+    <p class="text-gray-500 mt-1">View and update status of all service appointments</p>
+  </div>
+
+  <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="p-6 border-b border-gray-50 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <button 
+          (click)="setFilter('ALL')"
+          [class.bg-brand-gold/10]="currentFilter === 'ALL'"
+          [class.text-brand-gold]="currentFilter === 'ALL'"
+          class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest transition"
+          [ngClass]="currentFilter !== 'ALL' ? 'text-gray-500 hover:bg-gray-50' : ''">
+          All
+        </button>
+        <button 
+          (click)="setFilter('PENDING')"
+          [class.bg-brand-gold/10]="currentFilter === 'PENDING'"
+          [class.text-brand-gold]="currentFilter === 'PENDING'"
+          class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest transition"
+          [ngClass]="currentFilter !== 'PENDING' ? 'text-gray-500 hover:bg-gray-50' : ''">
+          Pending
+        </button>
+        <button 
+          (click)="setFilter('COMPLETED')"
+          [class.bg-brand-gold/10]="currentFilter === 'COMPLETED'"
+          [class.text-brand-gold]="currentFilter === 'COMPLETED'"
+          class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest transition"
+          [ngClass]="currentFilter !== 'COMPLETED' ? 'text-gray-500 hover:bg-gray-50' : ''">
+          Completed
+        </button>
+      </div>
+      <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Showing {{ filteredOrders.length }} Bookings</div>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-left">
+        <thead class="bg-gray-50 text-xs uppercase tracking-wider text-gray-400 font-bold">
+          <tr>
+            <th class="px-6 py-4">Booking ID</th>
+            <th class="px-6 py-4">Customer</th>
+            <th class="px-6 py-4">Service</th>
+            <th class="px-6 py-4">Schedule</th>
+            <th class="px-6 py-4">Status</th>
+            <th class="px-6 py-4 text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-50">
+          <tr *ngFor="let order of filteredOrders" class="hover:bg-gray-50 transition-colors">
+            <td class="px-6 py-4 text-sm font-bold text-brand-chocolate">{{ order.id }}</td>
+            <td class="px-6 py-4">
+              <div class="text-sm font-bold text-gray-800">{{ order.customer }}</div>
+              <div class="text-[10px] text-gray-500">{{ order.phone }}</div>
+            </td>
+            <td class="px-6 py-4">
+              <div class="text-sm text-gray-700">{{ order.service }}</div>
+            </td>
+            <td class="px-6 py-4">
+              <div class="text-sm font-medium text-gray-700">{{ order.date | date:'mediumDate' }}</div>
+              <div class="text-[10px] uppercase font-bold text-brand-gold tracking-widest">{{ order.time }}</div>
+            </td>
+            <td class="px-6 py-4">
+              <span class="text-[10px] uppercase font-bold px-3 py-1 rounded-full" 
+                [ngClass]="{
+                  'bg-amber-100 text-amber-600': order.status === 'Pending',
+                  'bg-green-100 text-green-600': order.status === 'Completed',
+                  'bg-red-100 text-red-600': order.status === 'Cancelled'
+                }">
+                {{ order.status }}
+              </span>
+            </td>
+            <td class="px-6 py-4 text-right relative group">
+              <select (change)="updateStatus(order, $any($event.target).value)" 
+                class="text-xs font-bold bg-transparent border-none outline-none cursor-pointer text-gray-400 hover:text-brand-chocolate transition">
+                <option value="" disabled selected>Update Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+/* Initial hidden state */
+.testimonial-header,
+.testimonial-card,
+.testimonial-avatars,
+.testimonial-content {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+/* Avatars zoom */
+.testimonial-avatars {
+  transform: scale(0.9);
+}
+
+/* When visible */
+.testimonial-visible .testimonial-header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonial-visible .testimonial-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.testimonial-visible .testimonial-avatars {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.4s;
+}
+
+.testimonial-visible .testimonial-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.55s;
+}

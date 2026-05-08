@@ -1,0 +1,280 @@
+<!-- Hero Video Section -->
+<section class="relative w-full h-screen overflow-hidden reveal" [class.show]="startAnimations">
+    <video #bgVideo muted loop playsinline preload="auto" (canplaythrough)="onVideoReady()"
+        class="absolute inset-0 w-full h-full object-cover">
+        <source src="assets/video/service-page.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/85"></div>
+    <div
+        class="relative z-10 flex flex-col items-center justify-center h-full px-5 text-center translate-y-[-1.5rem] md:translate-y-0 animate-fade-in">
+        <span
+            class="font-body uppercase tracking-[0.35em] md:tracking-[0.45em] text-[10px] md:text-sm text-white mb-6 md:mb-8 opacity-0 animate-fade-up delay-200">Aesthetics
+            Lounge</span>
+        <h1
+            class="font-heading text-[2.2rem] md:text-[3.6rem] font-semibold text-white leading-tight md:leading-snug mb-5 md:mb-6 letter-animate">
+            <span>P</span><span>r</span><span>e</span><span>m</span><span>i</span><span>u</span><span>m</span>
+            <span>&nbsp;</span>
+            <span>T</span><span>r</span><span>e</span><span>a</span><span>t</span><span>m</span><span>e</span><span>n</span><span>t</span>
+            <span>&nbsp;</span>
+            <span class="mobile-break">
+                <span>E</span><span>x</span><span>p</span><span>e</span><span>r</span><span>i</span><span>e</span><span>n</span><span>c</span><span>e</span>
+            </span>
+        </h1>
+        <div class="h-[1px] w-20 md:w-28 bg-white/80 mb-7 md:mb-10 opacity-0 animate-line delay-600"></div>
+        <p
+            class="font-body max-w-[90%] md:max-w-2xl text-[13px] md:text-base leading-[1.85] md:leading-[1.9] text-white/90 opacity-0 animate-fade-up delay-800">
+            Elevate your beauty and confidence with advanced aesthetic treatments crafted for timeless elegance.
+        </p>
+    </div>
+</section>
+
+<!-- Section Intro -->
+<section class="relative h-[300px] md:h-[360px] flex items-center justify-center overflow-hidden mt-10 mb-15 reveal">
+    <img src="logo/logo1.png" alt="logo background"
+        class="absolute inset-0 w-full h-full object-contain opacity-50 pointer-events-none" />
+    <div class="relative z-10 flex flex-col items-center text-center px-6">
+        <h1 class="text-3xl md:text-4xl font-serif text-brand-brown letter-animate">
+            <span>T</span><span>r</span><span>e</span><span>a</span><span>t</span><span>m</span><span>e</span><span>n</span><span>t</span>
+            <span>&nbsp;</span>
+            <span>S</span><span>e</span><span>r</span><span>v</span><span>i</span><span>c</span><span>e</span><span>s</span>
+        </h1>
+        <div class="w-16 md:w-20 h-[1px] bg-brand-gold mt-3 mb-6 animate-line"></div>
+        <p class="max-w-2xl text-sm md:text-base text-gray-600 leading-relaxed font-light reveal-img">
+            Explore our specialized clinical treatments designed to heal, restore, and maintain your skin's youthful
+            vitality.
+        </p>
+    </div>
+</section>
+
+<!-- Content Sections -->
+<section class="pt-15 pb-10 md:pb-24">
+    <div class="max-w-7xl mx-auto space-y-32">
+
+        <!-- Service 1: Derma planning -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+            <div class="order-2 md:order-1 text-center md:text-left reveal-img">
+                <h3 class="text-3xl md:text-4xl font-heading text-brand-chocolate mb-6">Derma planning</h3>
+                <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+                    A gentle exfoliation treatment that removes dead skin cells and fine facial hair for a smooth,
+                    glowing complexion.
+                </p>
+                <button (click)="bookService('Derma planning')"
+                    class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+                    Appointment</button>
+            </div>
+            <div class="order-1 md:order-2 relative reveal-img-right group">
+                <div
+                    class="absolute -inset-6 bg-brand-brown/5 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-700">
+                </div>
+                <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+                    <img src="assets/services/derma planning.webp" alt="Derma planning"
+                        class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute top-6 left-6 bg-brand-gold/90 backdrop-blur-sm text-brand-chocolate text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+                        Smooth</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 2: Korean-Skin -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+            <div class="relative reveal-img group">
+                <div
+                    class="absolute -inset-6 bg-brand-gold/5 rounded-[3rem] -rotate-3 group-hover:rotate-0 transition-transform duration-700">
+                </div>
+                <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+                    <img src="assets/services/Korean-Skin.jpg" alt="Korean-Skin"
+                        class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute top-6 right-6 bg-brand-chocolate/90 backdrop-blur-sm text-brand-gold text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+                        Glow</div>
+                </div>
+            </div>
+            <div class="text-center md:text-left reveal-img-right">
+                <h3 class="text-3xl md:text-4xl font-heading text-brand-brown mb-6">Korean Glass Skin</h3>
+                <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+                    Experience the famous glass skin glow with our specialized Korean hydration and revitalization
+                    techniques.
+                </p>
+                <button (click)="bookService('Korean-Skin')"
+                    class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+                    Appointment</button>
+            </div>
+        </div>
+
+        <!-- Service 3: Lip Blush -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+            <div class="order-2 md:order-1 text-center md:text-left reveal-img">
+                <h3 class="text-3xl md:text-4xl font-heading text-brand-chocolate mb-6">Lip Blush</h3>
+                <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+                    A semi-permanent treatment that enhances the natural color and shape of your lips for a fresh,
+                    tinted look.
+                </p>
+                <button (click)="bookService('Lip blush')"
+                    class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+                    Appointment</button>
+            </div>
+            <div class="order-1 md:order-2 relative reveal-img-right group">
+                <div
+                    class="absolute -inset-6 bg-brand-brown/5 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-700">
+                </div>
+                <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+                    <img src="assets/services/lip blush.jpeg" alt="Lip Blush"
+                        class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute top-6 left-6 bg-brand-gold/90 backdrop-blur-sm text-brand-chocolate text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+                        Natural</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 4: Lip Nutrilizer -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+            <div class="relative reveal-img group">
+                <div
+                    class="absolute -inset-6 bg-brand-gold/5 rounded-[3rem] -rotate-3 group-hover:rotate-0 transition-transform duration-700">
+                </div>
+                <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+                    <img src="assets/services/lip nutrilizer.jpg" alt="Lip Nutrilizer"
+                        class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute top-6 right-6 bg-brand-chocolate/90 backdrop-blur-sm text-brand-gold text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+                        Correct</div>
+                </div>
+            </div>
+            <div class="text-center md:text-left reveal-img-right">
+                <h3 class="text-3xl md:text-4xl font-heading text-brand-brown mb-6">Lip Nutrilizertion</h3>
+                <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+                    Neutralize hyperpigmentation and restore the natural balance of your lips with our expert care.
+                </p>
+                <button (click)="bookService('Lip nutrilizer')"
+                    class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+                    Appointment</button>
+            </div>
+        </div>
+
+        <!-- Service 5: Radiant Peels -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+            <div class="order-2 md:order-1 text-center md:text-left reveal-img">
+                <h3 class="text-3xl md:text-4xl font-heading text-brand-chocolate mb-6">Chemical Peels</h3>
+                <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+                    Medical-grade chemical peels to treat texture, acne, and pigmentation, revealing refreshed and
+                    healthy skin.
+                </p>
+                <button (click)="bookService('Peels')"
+                    class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+                    Appointment</button>
+            </div>
+            <div class="order-1 md:order-2 relative reveal-img-right group">
+                <div
+                    class="absolute -inset-6 bg-brand-brown/5 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-700">
+                </div>
+                <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+                    <img src="assets/services/peels.jpeg" alt="Peels"
+                        class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute top-6 left-6 bg-brand-gold/90 backdrop-blur-sm text-brand-chocolate text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+                        Renew</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 6: Powder Brow -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+            <div class="relative reveal-img group">
+                <div
+                    class="absolute -inset-6 bg-brand-gold/5 rounded-[3rem] -rotate-3 group-hover:rotate-0 transition-transform duration-700">
+                </div>
+                <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+                    <img src="assets/services/POWDER BROW.png" alt="POWDER BROW"
+                        class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute top-6 right-6 bg-brand-chocolate/90 backdrop-blur-sm text-brand-gold text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+                        Perfect</div>
+                </div>
+            </div>
+            <div class="text-center md:text-left reveal-img-right">
+                <h3 class="text-3xl md:text-4xl font-heading text-brand-brown mb-6">Powder Brow's</h3>
+                <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+                    Achieve perfectly shaped, soft-shaded eyebrows with our long-lasting powder brow technique.
+                </p>
+                <button (click)="bookService('POWDER BROW')"
+                    class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+                    Appointment</button>
+            </div>
+        </div>
+
+        <!-- Service 7: Warts Removal -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+            <div class="order-2 md:order-1 text-center md:text-left reveal-img">
+                <h3 class="text-3xl md:text-4xl font-heading text-brand-chocolate mb-6">Wart Removal</h3>
+                <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+                    Safe and effective clinical removal of warts and skin tags with minimal downtime and precision.
+                </p>
+                <button (click)="bookService('Warts removal')"
+                    class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+                    Appointment</button>
+            </div>
+            <div class="order-1 md:order-2 relative reveal-img-right group">
+                <div
+                    class="absolute -inset-6 bg-brand-brown/5 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-700">
+                </div>
+                <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+                    <img src="assets/services/warts removal.jpg" alt="Warts Removal"
+                        class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute top-6 left-6 bg-brand-gold/90 backdrop-blur-sm text-brand-chocolate text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+                        Safe</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 8: Hydrafacial -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+            <div class="relative reveal-img group">
+                <div
+                    class="absolute -inset-6 bg-brand-gold/5 rounded-[3rem] -rotate-3 group-hover:rotate-0 transition-transform duration-700">
+                </div>
+                <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+                    <img src="assets/services/Hydrafacial.jpg" alt="Hydrafacial"
+                        class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute top-6 right-6 bg-brand-chocolate/90 backdrop-blur-sm text-brand-gold text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+                        Radiate</div>
+                </div>
+            </div>
+            <div class="text-center md:text-left reveal-img-right">
+                <h3 class="text-3xl md:text-4xl font-heading text-brand-brown mb-6">Hydrafacial</h3>
+                <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+                    The ultimate multi-step facial that cleanses, exfoliates, and hydrates your skin for instant
+                    radiance.
+                </p>
+                <button (click)="bookService('Hydrafacial')"
+                    class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+                    Appointment</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SCROLLING IMAGES SECTION -->
+<section class="scroll-container reveal">
+    <div class="scroll-track">
+        <div class="scroll-item"><img src="assets/services/derma planning.webp" alt="Derma planning"></div>
+        <div class="scroll-item"><img src="assets/services/Korean-Skin.jpg" alt="Korean Skin"></div>
+        <div class="scroll-item"><img src="assets/services/lip blush.jpeg" alt="Lip Blush"></div>
+        <div class="scroll-item"><img src="assets/services/lip nutrilizer.jpg" alt="Lip Nutrilizer"></div>
+        <div class="scroll-item"><img src="assets/services/peels.jpeg" alt="Peels"></div>
+        <div class="scroll-item"><img src="assets/services/POWDER BROW.png" alt="Powder Brow"></div>
+        <div class="scroll-item"><img src="assets/services/warts removal.jpg" alt="Warts Removal"></div>
+        <div class="scroll-item"><img src="assets/services/Hydrafacial.jpg" alt="Hydrafacial"></div>
+        <!-- Duplicates for smooth loop -->
+        <div class="scroll-item"><img src="assets/services/derma planning.webp" alt="Derma planning"></div>
+        <div class="scroll-item"><img src="assets/services/Korean-Skin.jpg" alt="Korean Skin"></div>
+        <div class="scroll-item"><img src="assets/services/lip blush.jpeg" alt="Lip Blush"></div>
+        <div class="scroll-item"><img src="assets/services/lip nutrilizer.jpg" alt="Lip Nutrilizer"></div>
+    </div>
+</section>
+
+<app-instagram></app-instagram>

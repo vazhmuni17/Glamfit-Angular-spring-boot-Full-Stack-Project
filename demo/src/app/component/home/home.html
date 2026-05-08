@@ -1,0 +1,95 @@
+<!-- Slide Section -->
+<section class="relative h-[90vh] w-full overflow-hidden ">
+  <!-- Slides -->
+  <div class="absolute inset-0 flex transition-transform duration-1000 ease-in-out"
+    [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+    <div *ngFor="let img of images" class="min-w-full h-[90vh] bg-cover bg-center"
+      [style.backgroundImage]="'url(' + img + ')'"></div>
+  </div>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
+  <!-- Text Content -->
+  <div class="relative z-10 h-full flex items-center justify-center text-center px-4 sm:px-6">
+    <div class="text-white max-w-3xl">
+
+      <!-- Heading -->
+      <h1 class="
+        text-3xl
+        sm:text-4xl
+        md:text-5xl
+        lg:text-6xl
+        font-bold
+        mb-3 sm:mb-4
+        leading-tight sm:leading-snug
+        tracking-wide
+      ">
+        Transforming Beauty <br> Transforming you
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="
+        text-sm
+        sm:text-base
+        md:text-lg
+        mb-6 sm:mb-8
+        opacity-90
+        leading-relaxed
+      ">
+        Where self-care meets elegance & perfection
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+
+        <button class="
+          bg-gold text-brownDark
+          px-6 sm:px-8
+          py-2.5 sm:py-3
+          rounded-full
+          text-xs sm:text-sm
+          font-semibold
+          tracking-wider
+          transition-all duration-300
+          hover:bg-goldLight hover:-translate-y-1 hover:shadow-xl
+        " (click)="bookingPage()">
+          Book Appointment
+        </button>
+
+        <button class="
+          border border-white
+          px-6 sm:px-8
+          py-2.5 sm:py-3
+          rounded-full
+          text-xs sm:text-sm
+          font-semibold
+          tracking-wider
+          transition-all duration-300
+          hover:bg-white hover:text-black
+        " (click)="viewService()">
+          View Services
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- SERVICES SECTION -->
+<app-service-section></app-service-section>
+
+
+<!-- TREATMENTS SECTION -->
+<app-treatment-section></app-treatment-section>
+
+
+<!-- TESTIMONIALS SECTION -->
+<app-testimonials-section></app-testimonials-section>
+
+
+<!-- VIDEO + FEATURES SECTION -->
+<app-video-section></app-video-section>
+
+<!-- INSTAGRAM SECTION -->
+<app-instagram></app-instagram>

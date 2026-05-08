@@ -1,0 +1,568 @@
+<!-- starting page -->
+
+<section class="relative w-full h-screen overflow-hidden reveal" [class.show]="startAnimations">
+
+  <!-- Background Video -->
+  <video #bgVideo muted loop playsinline preload="auto" (canplaythrough)="onVideoReady()"
+    class="absolute inset-0 w-full h-full object-cover">
+
+    <source src="assets/video/about-page.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/85"></div>
+
+  <!-- HERO CONTENT (LOCKED UNTIL VIDEO READY) -->
+  <div class="relative z-10 flex flex-col items-center justify-center
+           h-full px-5 text-center
+           translate-y-[-1.5rem] md:translate-y-0
+           animate-fade-in">
+
+    <!-- Small Tag -->
+    <span class="font-body uppercase
+             tracking-[0.35em] md:tracking-[0.45em]
+             text-[10px] md:text-sm
+             text-white mb-6 md:mb-8
+             opacity-0 animate-fade-up delay-200">
+      about Us
+    </span>
+
+    <!-- Heading (Mobile + Tablet only) -->
+    <h1 class="font-heading
+             text-[2.2rem] md:text-[3.6rem]
+             font-semibold
+             text-white
+             leading-tight md:leading-snug
+             mb-5 md:mb-6
+             letter-animate  
+             ">
+      <span>P</span><span>r</span><span>e</span><span>m</span><span>i</span><span>u</span><span>m</span>
+      <span>&nbsp;</span>
+      <span>B</span><span>e</span><span>a</span><span>u</span><span>t</span><span>y</span>
+      <span>&nbsp;</span>
+      <span class="mobile-break">
+        <span>E</span><span>x</span><span>p</span><span>e</span><span>r</span><span>i</span><span>e</span><span>n</span><span>c</span><span>e</span>
+      </span>
+    </h1>
+
+    <!-- Divider -->
+    <div class="h-[1px]
+             w-20 md:w-28
+             bg-white/80
+             mb-7 md:mb-10
+             opacity-0 animate-line delay-600"></div>
+
+    <!-- Description -->
+    <p class="font-body
+             max-w-[90%] md:max-w-2xl
+             text-[13px] md:text-base
+             leading-[1.85] md:leading-[1.9]
+             text-white/90
+             opacity-0 animate-fade-up delay-800">
+      Glamfit Asthetic and Beauty Lounge your go to destination for premium beauty and
+      skincare service's in nelson Manickam road chennai
+    </p>
+
+  </div>
+</section>
+<!-- logo service -->
+<section class="relative  h-[220px] md:h-[300px] flex items-center justify-center overflow-hidden reveal">
+
+  <!-- Background Logo (Backside) -->
+  <img src="logo/logo1.png" alt="logo background" class="absolute inset-0
+         w-full h-full
+         object-contain
+         opacity-50
+         pointer-events-none" />
+
+  <!-- Front Content -->
+  <div class="relative z-10 flex flex-col items-center justify-center text-center ">
+
+    <h1 class="
+             text-3xl md:text-4xl font-serif text-[#5B3D2D] mb-4 letter-animate">
+      <span>A</span><span>b</span><span>o</span><span>u</span><span>t</span> <span>U</span><span>s</span>
+    </h1>
+
+    <!-- Divider -->
+    <div class="w-16 md:w-20 h-[1px] bg-[#CBB088] animate-line "></div>
+
+  </div>
+
+
+
+</section>
+<!-- vission mission -->
+<section class="pt-8 md:pt-17 pb-16 md:pb-24 px-6 -mt-8 md:-mt-12 reveal">
+
+  <!-- Section Title -->
+  <div class="text-center max-w-3xl mx-auto mb-14">
+    <h2 class="font-serif
+             text-[#5B3D2D]
+             text-3xl md:text-4xl
+             
+             tracking-wide">
+      Shaping Dreams into Reality
+    </h2>
+
+    <!-- Decorative Line -->
+    <div class="mt-6 flex justify-center">
+      <span class="w-16 h-[2px] bg-[#C9A36A] animate-line "></span>
+    </div>
+  </div>
+
+  <!-- Content Grid -->
+  <div class="max-w-6xl mx-auto
+           grid grid-cols-1 md:grid-cols-2
+           gap-12 md:gap-20 ">
+
+    <!-- Mission -->
+    <div class="space-y-5  opacity-0  reveal-img ">
+      <h3 class="font-serif
+               text-xl
+               text-[#5B3D2D]
+               font-semibold">
+        Our Mission
+      </h3>
+
+      <p class="text-[#3F3F3F]
+               text-sm md:text-base
+               leading-relaxed">
+        At Glamfit, we are dedicated to providing high-quality aesthetic and
+        beauty services at affordable prices. We believe everyone deserves to
+        shine, which is why we combine expert care, modern techniques, and a
+        welcoming environment to make beauty accessible for all.
+      </p>
+    </div>
+
+    <!-- Vision -->
+    <div class="space-y-5 opacity-0 reveal-img ">
+      <h3 class="font-serif
+               text-xl
+               text-[#5B3D2D]
+               font-semibold">
+        Our Vision
+      </h3>
+
+      <p class="text-[#3F3F3F]
+               text-sm md:text-base
+               leading-relaxed">
+        To make beauty and confidence accessible to everyone—helping every
+        individual glow and feel their best through effortless, affordable,
+        and professional beauty care.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- spa section -->
+<section class="bg-white pt-20 md:pt-28 pb-32 md:pb-60 reveal ">
+
+  <!-- Brown Container -->
+  <div class="max-w-6xl mx-auto bg-[#5B3D2D]
+           px-6 md:px-12
+           
+           pt-14 md:pt-20
+           pb-56 md:pb-64
+           relative">
+
+    <!-- Title -->
+    <h2 class="text-center font-serif text-[#E7C873]
+             text-2xl md:text-4xl mb-4 animate-fade-up">
+      Our SPA procedures
+    </h2>
+
+    <!-- Description -->
+    <p class="text-center max-w-3xl mx-auto
+             text-[#EED9A8]
+             text-sm md:text-base
+             leading-relaxed animate-fade-up delay-200">
+      At Glamfit, we believe true beauty comes from complete wellness.
+      Our spa services are thoughtfully designed to relax, rejuvenate,
+      and restore balance to your body and mind.
+    </p>
+
+    <!-- Video -->
+    <div class="absolute left-1/2 -translate-x-1/2
+             bottom-[-6rem]
+             sm:bottom-[-7rem]
+             md:bottom-[-9rem]
+             lg:bottom-[-13rem]
+             w-full flex justify-center reveal-scale">
+      <div class="relative
+               w-[85%]
+               sm:w-[70%]
+               md:w-[68%]
+               lg:w-[65%]
+               aspect-video
+               rounded-xl
+               overflow-hidden
+               shadow-2xl bg-black">
+
+        <video class="w-full h-full object-cover" poster="assets/images/spa-poster.jpg" controls>
+          <source src="assets/video/spa.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Play Icon Overlay -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white/90 rounded-full flex items-center justify-center">
+            <span class="ml-1 text-[#5B3D2D] text-lg sm:text-xl">▶</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- learn more -->
+<section class=" py-20 md:py-28 mt-1 ">
+
+  <div class="max-w-6xl mx-auto
+           grid grid-cols-1 md:grid-cols-2
+           gap-12 md:gap-20
+           items-center
+           px-6">
+
+    <!-- Image -->
+    <div class="flex justify-center md:justify-start">
+      <img src="assets/about/about-img.jpg" alt="Founder Glamfit" class="w-[280px] sm:w-[340px] md:w-[380px]
+               rounded-sm
+               shadow-xl
+               object-cover reveal-img" />
+    </div>
+
+    <!-- Content -->
+    <div class="space-y-6 text-center md:text-left  reveal-img-right">
+
+      <!-- Heading -->
+      <h2 class="font-serif
+               text-[#5B3D2D]
+               text-3xl md:text-4xl
+               leading-tight">
+        Beauty Born in Style,<br />
+        Delivered with Soul<br />
+        <span class="italic">Pure Elegance...</span>
+      </h2>
+
+      <!-- Description -->
+      <p class="text-[#3F3F3F]
+               text-sm md:text-base
+               leading-relaxed
+               max-w-lg mx-auto md:mx-0">
+        Anjali Ramachandran, founder of Glamfit an Aesthetic and Beauty
+        Lounge and Glamfit Pro Academy, officially launched the brand on
+        June 16, 2024.
+      </p>
+
+      <!-- Button -->
+      <div>
+        <a href="#" class="inline-block
+                 bg-[#5B3D2D]
+                 text-[#EED9A8]
+                 px-8 py-3
+                 text-sm
+                 tracking-wide
+                  hover:bg-[#EED9A8] hover:text-[#5B3D2D] transition-all duration-300
+            hover:shadow-xl">
+          Learn more
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<app-banner></app-banner>
+<!-- our team  -->
+<section class="bg-white py-20 md:py-28">
+
+  <!-- Section Heading -->
+  <div class="text-center mb-16 ">
+    <h2 class="font-serif text-3xl md:text-4xl text-[#5B3D2D]">
+      Our Team
+    </h2>
+    <p class="text-sm text-gray-500 mt-2">
+      Meet our professionals
+    </p>
+  </div>
+
+  <!-- Team Grid -->
+  <div class="max-w-6xl mx-auto
+           grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+           gap-12 px-6">
+
+    <!-- TEAM CARD -->
+    <div class="text-center reveal delay-200">
+
+      <!-- Image with Hover -->
+      <div class="relative bg-[#F7F1EA]
+               h-64 sm:h-72 md:h-80
+               mb-6 overflow-hidden
+               group cursor-pointer">
+        <img src="assets/team/a.jpeg" alt="Marianna Holder" class="w-full h-full object-cover
+                 transition-transform duration-500
+                 group-hover:scale-110" />
+        <div class="absolute inset-0
+                 bg-[#5B3D2D]/40
+                 opacity-0
+                 group-hover:opacity-100
+                 transition duration-500"></div>
+      </div>
+
+      <h3 class="font-serif text-[#5B3D2D]">
+        Marianna Holder
+      </h3>
+      <p class="text-xs text-gray-500 mb-3">Hairdresser</p>
+
+      <!-- Social Icons -->
+      <div class="flex justify-center gap-3">
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/facebook.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/instagram.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/twitter.png" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/telegram.svg" class="h-4" />
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Repeat same card structure for other members -->
+
+    <!-- TIFFANY -->
+    <div class="text-center reveal delay-400">
+      <div class="relative bg-[#F7F1EA] h-64 sm:h-72 md:h-80 mb-6 overflow-hidden group cursor-pointer">
+        <img src="assets/team/b.jpeg" alt="Tiffany Anderson"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-[#5B3D2D]/40 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+      </div>
+      <h3 class="font-serif text-[#5B3D2D]">Tiffany Anderson</h3>
+      <p class="text-xs text-gray-500 mb-3">Hairdresser</p>
+      <!-- Social Icons -->
+      <div class="flex justify-center gap-3">
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/facebook.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/instagram.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/twitter.png" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/telegram.svg" class="h-4" />
+        </a>
+      </div>
+    </div>
+
+    <!-- BRIANNA -->
+    <div class="text-center reveal delay-600">
+      <div class="relative bg-[#F7F1EA] h-64 sm:h-72 md:h-80 mb-6 overflow-hidden group cursor-pointer">
+        <img src="assets/team/c.jpeg" alt="Brianna Fitzgerald"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-[#5B3D2D]/40 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+      </div>
+      <h3 class="font-serif text-[#5B3D2D]">Brianna Fitzgerald</h3>
+      <p class="text-xs text-gray-500 mb-3">Hairdresser</p>
+      <!-- Social Icons -->
+      <div class="flex justify-center gap-3">
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/facebook.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/instagram.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/twitter.png" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/telegram.svg" class="h-4" />
+        </a>
+      </div>
+    </div>
+
+    <!-- JAQUELINE -->
+    <div class="text-center reveal delay-200">
+      <div class="relative bg-[#F7F1EA] h-64 sm:h-72 md:h-80 mb-6 overflow-hidden group cursor-pointer">
+        <img src="assets/team/d.jpeg" alt="Jaqueline Colon"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-[#5B3D2D]/40 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+      </div>
+      <h3 class="font-serif text-[#5B3D2D]">Jaqueline Colon</h3>
+      <p class="text-xs text-gray-500 mb-3">Hairdresser</p>
+      <!-- Social Icons -->
+      <div class="flex justify-center gap-3">
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/facebook.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/instagram.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/twitter.png" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/telegram.svg" class="h-4" />
+        </a>
+      </div>
+    </div>
+
+    <!-- WANDA -->
+    <div class="text-center reveal delay-400">
+      <div class="relative bg-[#F7F1EA] h-64 sm:h-72 md:h-80 mb-6 overflow-hidden group cursor-pointer">
+        <img src="assets/team/e.jpeg" alt="Wanda Cummerata"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-[#5B3D2D]/40 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+      </div>
+      <h3 class="font-serif text-[#5B3D2D]">Wanda Cummerata</h3>
+      <p class="text-xs text-gray-500 mb-3">Hairdresser</p>
+      <!-- Social Icons -->
+      <div class="flex justify-center gap-3">
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/facebook.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/instagram.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/twitter.png" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/telegram.svg" class="h-4" />
+        </a>
+      </div>
+    </div>
+
+    <!-- CAMERON -->
+    <div class="text-center reveal delay-600">
+      <div class="relative bg-[#F7F1EA] h-64 sm:h-72 md:h-80 mb-6 overflow-hidden group cursor-pointer">
+        <img src="assets/team/a.jpeg" alt="Cameron Banks"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-[#5B3D2D]/40 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+      </div>
+      <h3 class="font-serif text-[#5B3D2D]">Cameron Banks</h3>
+      <p class="text-xs text-gray-500 mb-3">Hairdresser</p>
+      <!-- Social Icons -->
+      <div class="flex justify-center gap-3 ">
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/facebook.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/instagram.svg" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/twitter.png" class="h-4" />
+        </a>
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-[#5B3D2D] hover:bg-[#CBB088] transition cursor-pointer">
+          <img src="footer-icon/telegram.svg" class="h-4" />
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<!-- why choosing  -->
+
+<section class="bg-white py-18 reveal">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Heading -->
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-serif text-[#5B3D2D] reveal-img ">
+        Why Choose GlamFit
+      </h2>
+      <div class="w-20 h-[1px] bg-[#CBB088] mx-auto mt-4 mb-6 reveal-img "></div>
+      <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed reveal-img  ">
+        At GlamFit Aesthetic & Beauty Lounge, we believe beauty is personal.
+        Every service is designed to enhance your natural glow with care, precision,
+        and premium products.
+      </p>
+    </div>
+
+    <!-- Features -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 reveal-img-right">
+
+      <!-- Card -->
+      <div class="text-center px-6">
+        <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-[#F3E9DE] flex items-center justify-center">
+          ✨
+        </div>
+        <h3 class="text-lg font-medium text-[#5B3D2D] mb-3">
+          Premium Care
+        </h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          We use high-quality products and advanced techniques to deliver
+          safe, effective, and long-lasting beauty results.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="text-center px-6">
+        <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-[#F3E9DE] flex items-center justify-center">
+          💆‍♀️
+        </div>
+        <h3 class="text-lg font-medium text-[#5B3D2D] mb-3">
+          Expert Professionals
+        </h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          Our certified beauty experts provide personalized treatments
+          tailored to your skin, hair, and style preferences.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="text-center px-6">
+        <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-[#F3E9DE] flex items-center justify-center">
+          🌸
+        </div>
+        <h3 class="text-lg font-medium text-[#5B3D2D] mb-3">
+          Relaxing Ambience
+        </h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          Step into a calm, hygienic, and welcoming environment
+          designed to relax your mind and rejuvenate your beauty.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<app-instagram></app-instagram>

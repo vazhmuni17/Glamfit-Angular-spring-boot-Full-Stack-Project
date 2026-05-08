@@ -1,0 +1,254 @@
+<!-- stating video-->
+<section class="relative w-full h-screen overflow-hidden reveal" [class.show]="startAnimations">
+
+  <!-- Background Video -->
+  <video #bgVideo muted loop playsinline preload="auto" (canplaythrough)="onVideoReady()"
+    class="absolute inset-0 w-full h-full object-cover">
+
+    <source src="assets/video/contact-page.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/85"></div>
+
+  <!-- HERO CONTENT (LOCKED UNTIL VIDEO READY) -->
+  <div class="relative z-10 flex flex-col items-center justify-center
+           h-full px-5 text-center
+           translate-y-[-1.5rem] md:translate-y-0
+           animate-fade-in">
+
+    <!-- Small Tag -->
+    <span class="font-body uppercase
+             tracking-[0.35em] md:tracking-[0.45em]
+             text-[10px] md:text-sm
+             text-white mb-6 md:mb-8
+             opacity-0 animate-fade-up delay-200">
+      Contact Us
+    </span>
+
+    <!-- Heading (Mobile + Tablet only) -->
+    <h1 class="font-heading
+             text-[2.2rem] md:text-[3.6rem]
+             font-semibold
+             text-white
+             leading-tight md:leading-snug
+             mb-5 md:mb-6
+             letter-animate  
+             ">
+      <span>P</span><span>r</span><span>e</span><span>m</span><span>i</span><span>u</span><span>m</span>
+      <span>&nbsp;</span>
+      <span>B</span><span>e</span><span>a</span><span>u</span><span>t</span><span>y</span>
+      <span>&nbsp;</span>
+      <span class="mobile-break">
+        <span>E</span><span>x</span><span>p</span><span>e</span><span>r</span><span>i</span><span>e</span><span>n</span><span>c</span><span>e</span>
+      </span>
+    </h1>
+
+    <!-- Divider -->
+    <div class="h-[1px]
+             w-20 md:w-28
+             bg-white/80
+             mb-7 md:mb-10
+             opacity-0 animate-line delay-600"></div>
+
+    <!-- Description -->
+    <p class="font-body
+             max-w-[90%] md:max-w-2xl
+             text-[13px] md:text-base
+             leading-[1.85] md:leading-[1.9]
+             text-white/90
+             opacity-0 animate-fade-up delay-800">
+      Glamfit Asthetic and Beauty Lounge your go to destination for premium beauty and
+      skincare service's in nelson Manickam road chennai
+    </p>
+
+  </div>
+</section>
+
+<!-- logo service -->
+<section class="relative  h-[220px] md:h-[300px] flex items-center justify-center overflow-hidden reveal">
+
+  <!-- Background Logo (Backside) -->
+  <img src="logo/logo1.png" alt="logo background" class="absolute inset-0
+         w-full h-full
+         object-contain
+         opacity-50
+         pointer-events-none" />
+
+  <!-- Front Content -->
+  <div class="relative z-10 flex flex-col items-center justify-center text-center ">
+
+    <h1 class="
+             text-3xl md:text-4xl font-serif text-[#5B3D2D] mb-4 letter-animate">
+      <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span> <span>c</span><span>t</span>
+      <span>U</span><span>s</span>
+    </h1>
+
+    <!-- Divider -->
+    <div class="w-16 md:w-20 h-[1px] bg-[#CBB088] animate-line "></div>
+
+  </div>
+
+
+
+</section>
+<!-- map -->
+<section class=" py-10 md:py-5 md:m-5 m-5">
+
+  <!-- Map Wrapper -->
+  <a href="https://www.google.com/maps?q=Glamfit+Beauty+Parlour+Chennai" target="_blank" rel="noopener noreferrer"
+    class="block relative max-w-6xl mx-auto
+           h-[260px] sm:h-[320px] md:h-[420px]
+           overflow-hidden rounded-xl shadow-2xl
+           group cursor-pointer">
+
+    <!-- Map Image -->
+    <img src="assets/contact/map1.png" alt="Glamfit Location Map" class="absolute inset-0 w-full h-full object-cover
+             transition duration-700 " />
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/20
+             group-hover:bg-black/10
+             transition duration-700"></div>
+
+    <!-- Location Pin -->
+    <div class="absolute inset-0 flex items-center justify-center top-15 left-15">
+      <div class="w-12 h-12 md:w-10 md:h-10
+               bg-[#5B3D2D] text-white
+               rounded-full flex items-center justify-center
+               shadow-xl
+               animate-bounce">
+        📍
+      </div>
+    </div>
+
+    <!-- Optional Text -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2
+             bg-white/90 text-[#5B3D2D]
+             px-6 py-2 text-sm font-medium
+             rounded-full shadow-lg
+             opacity-0 group-hover:opacity-100
+             transition duration-500">
+      Open in Google Maps
+    </div>
+
+  </a>
+
+</section>
+<!-- CONTACT SECTION -->
+<section class="bg-[#faf8f3] py-16 px-4">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+
+    <!-- LEFT CARD -->
+    <div class="bg-[#efede6] rounded-2xl p-8 space-y-6">
+      <h3 class="text-lg font-semibold">
+        Connect With Us Before You Disconnect:
+      </h3>
+
+      <p class="text-sm text-gray-600">
+        Have questions about treatments, consultations, or appointments?
+        Our team is here to guide you with clear, personalised information.
+      </p>
+
+      <hr class="border-gray-300" />
+
+      <div class="space-y-5 text-sm">
+
+        <div class="flex gap-3">
+          <img src="icons/location.svg" class="h-7" alt="">
+          <div>
+            <p class="font-medium">Skin Clinic</p>
+            <p class="text-gray-600">
+              2nd, Opportunity Towers, 122, Railway Colony 4th Street,
+              Aminjikarai, Chennai,
+              Tamil Nadu 600029
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <img src="icons/whatsapp-icon.svg" class="h-7" alt="">
+          <div>
+            <p class="font-medium">WhatsApp</p>
+            <p class="text-gray-600">+91 81227 18901</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <span class="text-[#c9a24d] text-xl"><img src="icons/email-icon.svg" class="h-7" alt=""></span>
+          <div>
+            <p class="font-medium">Email</p>
+            <p class="text-gray-600">glamfit14@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <span class="text-[#c9a24d] text-xl"><img src="icons/alarm.svg" class="h-7" alt=""></span>
+          <div>
+            <p class="font-medium">Clinic Hours</p>
+            <p class="text-gray-600">Mon – Sun: 10:00 AM – 7:30 PM</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CENTER IMAGE -->
+    <div class="flex flex-col justify-center text-center lg:text-left px-4">
+      <h2 class="text-3xl md:text-4xl font-serif mb-4">
+        Revive Your Skin,<br />
+        Restore Your Calm
+      </h2>
+
+      <p class="text-sm text-gray-600 mb-6">
+        Awaken the Body, Soothe the Mind, Feed the Soul
+        Where Every Pose Becomes a Moment.
+      </p>
+
+      <img src="assets/contact/contactreview.jpg" alt="Skin treatment"
+        class="rounded-2xl object-cover w-full max-h-[380px]" />
+    </div>
+
+    <!-- RIGHT CARD -->
+    <div class="bg-[#efede6] rounded-2xl p-8 space-y-6">
+      <h3 class="text-lg font-semibold">
+        We're Just a Message Away
+      </h3>
+
+      <p class="text-sm text-gray-600">
+        Need help choosing the right treatment or booking a consultation?
+        Reach out to us — we're happy to assist.
+      </p>
+
+      <hr class="border-gray-300" />
+
+      <div class="space-y-4 text-sm">
+        <div>
+          <p class="font-medium">Follow Us:</p>
+          <div class="flex gap-3 mt-2">
+            <a href="https://www.instagram.com/glamfit_aestheticsbeautylounge/" target="_blank"
+              class="w-9 h-9 flex items-center justify-center rounded-full bg-[#CBB088]/20 hover:bg-[#CBB088] transition">
+              <img src="footer-icon/instagram.svg" />
+            </a>
+            <a href="https://wa.me/918122718901" target="_blank"
+              class="w-9 h-9 flex items-center justify-center rounded-full bg-[#CBB088]/20 hover:bg-[#CBB088] transition">
+              <img src="icons/whatsapp-icon.svg" />
+            </a>
+            <a href="https://www.facebook.com/people/Glamfit-Aesthetics-Beauty-lounge/61573514687570/" target="_blank"
+              class="w-9 h-9 flex items-center justify-center rounded-full bg-[#CBB088]/20 hover:bg-[#CBB088] transition">
+              <img src="icons/facebook-back.svg" />
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<app-booking-form></app-booking-form>
+<app-instagram></app-instagram>

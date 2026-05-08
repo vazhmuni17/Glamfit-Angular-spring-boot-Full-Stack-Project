@@ -1,0 +1,194 @@
+<!-- Hero Video Section -->
+<section class="relative w-full h-screen overflow-hidden reveal" [class.show]="startAnimations">
+  <video #bgVideo muted loop playsinline preload="auto" (canplaythrough)="onVideoReady()"
+    class="absolute inset-0 w-full h-full object-cover">
+    <source src="assets/video/service-page.mp4" type="video/mp4" />
+  </video>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/85"></div>
+  <div
+    class="relative z-10 flex flex-col items-center justify-center h-full px-5 text-center translate-y-[-1.5rem] md:translate-y-0 animate-fade-in">
+    <span
+      class="font-body uppercase tracking-[0.35em] md:tracking-[0.45em] text-[10px] md:text-sm text-white mb-6 md:mb-8 opacity-0 animate-fade-up delay-200">Beauty
+      Lounge</span>
+    <h1
+      class="font-heading text-[2.2rem] md:text-[3.6rem] font-semibold text-white leading-tight md:leading-snug mb-5 md:mb-6 letter-animate">
+      <span>P</span><span>r</span><span>e</span><span>m</span><span>i</span><span>u</span><span>m</span>
+      <span>&nbsp;</span>
+      <span>B</span><span>e</span><span>a</span><span>u</span><span>t</span><span>y</span>
+      <span>&nbsp;</span>
+      <span class="mobile-break">
+        <span>E</span><span>x</span><span>p</span><span>e</span><span>r</span><span>i</span><span>e</span><span>n</span><span>c</span><span>e</span>
+      </span>
+    </h1>
+    <div class="h-[1px] w-20 md:w-28 bg-white/80 mb-7 md:mb-10 opacity-0 animate-line delay-600"></div>
+    <p
+      class="font-body max-w-[90%] md:max-w-2xl text-[13px] md:text-base leading-[1.85] md:leading-[1.9] text-white/90 opacity-0 animate-fade-up delay-800">
+      Discover the art of transformation with bespoke beauty treatments designed to refine your natural beauty.
+    </p>
+  </div>
+</section>
+
+<!-- Section Intro -->
+<section class="relative h-[300px] md:h-[360px] flex items-center justify-center overflow-hidden mt-10 mb-15 reveal">
+  <img src="logo/logo1.png" alt="logo background"
+    class="absolute inset-0 w-full h-full object-contain opacity-50 pointer-events-none" />
+  <div class="relative z-10 flex flex-col items-center text-center px-6">
+    <h1 class="text-3xl md:text-4xl font-serif text-brand-brown letter-animate">
+      <span>B</span><span>e</span><span>a</span><span>u</span><span>t</span><span>y</span>
+      <span>&nbsp;</span>
+      <span>S</span><span>e</span><span>r</span><span>v</span><span>i</span><span>c</span><span>e</span><span>s</span>
+    </h1>
+    <div class="w-16 md:w-20 h-[1px] bg-brand-gold mt-3 mb-6 animate-line"></div>
+    <p class="max-w-2xl text-sm md:text-base text-gray-600 leading-relaxed font-light reveal-img">
+      Beauty is not about changing who you are it’s about refining and enhancing your natural elegance. We use
+      clinically approved methods combined with a holistic approach to ensure safe and effective results.
+    </p>
+  </div>
+</section>
+
+<!-- Content Sections -->
+<section class="pt-15 pb-10 md:pb-24">
+  <div class="max-w-7xl mx-auto space-y-32">
+    <!-- Service 1: Threading -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+      <div class="relative reveal-img group">
+        <div
+          class="absolute -inset-6 bg-brand-gold/5 rounded-[3rem] -rotate-3 group-hover:rotate-0 transition-transform duration-700">
+        </div>
+        <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+          <img src="assets/services/threading.png" alt="Threading"
+            class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+          <div
+            class="absolute top-6 right-6 bg-brand-chocolate/90 backdrop-blur-sm text-brand-gold text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+            Essential</div>
+        </div>
+      </div>
+      <div class="text-center md:text-left reveal-img-right">
+        <h3 class="text-3xl md:text-4xl font-heading text-brand-brown mb-6">Threading</h3>
+        <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+          Experience gentle precision with our expert threading service that beautifully shapes your brows and removes
+          unwanted hair.
+        </p>
+        <button (click)="bookService('Threading')"
+          class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+          Appointment</button>
+      </div>
+    </div>
+
+    <!-- Service 2: Hair Styling -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+      <div class="order-2 md:order-1 text-center md:text-left reveal-img">
+        <h3 class="text-3xl md:text-4xl font-heading text-brand-chocolate mb-6">Hair Styling</h3>
+        <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+          Transform your look with personalized styling that enhances your natural beauty. From elegant cuts to
+          voluminous finishes.
+        </p>
+        <button (click)="bookService('Hair Styling')"
+          class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+          Appointment</button>
+      </div>
+      <div class="order-1 md:order-2 relative reveal-img-right group">
+        <div
+          class="absolute -inset-6 bg-brand-brown/5 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-700">
+        </div>
+        <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+          <img src="assets/services/hairstyle.png" alt="Hair Styling"
+            class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+          <div
+            class="absolute top-6 left-6 bg-brand-gold/90 backdrop-blur-sm text-brand-chocolate text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+            Popular</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 3: Nail Artistry -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+      <div class="relative reveal-img group">
+        <div
+          class="absolute -inset-6 bg-brand-gold/5 rounded-[3rem] -rotate-3 group-hover:rotate-0 transition-transform duration-700">
+        </div>
+        <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+          <img src="assets/services/nail.jpg" alt="Nail Extension"
+            class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+          <div
+            class="absolute top-6 right-6 bg-brand-chocolate/90 backdrop-blur-sm text-brand-gold text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+            Premium</div>
+        </div>
+      </div>
+      <div class="text-center md:text-left reveal-img-right">
+        <h3 class="text-3xl md:text-4xl font-heading text-brand-brown mb-6">Nail Art</h3>
+        <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+          Pamper your hands and feet with our luxurious nail care treatments. Enjoy flawless finishes and expert care.
+        </p>
+        <button (click)="bookService('Nail Artistry')"
+          class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+          Appointment</button>
+      </div>
+    </div>
+
+    <!-- Service 4: Manicure & Spa -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+      <div class="order-2 md:order-1 text-center md:text-left reveal-img">
+        <h3 class="text-3xl md:text-4xl font-heading text-brand-chocolate mb-6">Manicure & Pedicure</h3>
+        <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+          Indulge in the ultimate hand and foot care with our soothing pedicure and manicure services.
+        </p>
+        <button (click)="bookService('Manicure & Spa')"
+          class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+          Appointment</button>
+      </div>
+      <div class="order-1 md:order-2 relative reveal-img-right group">
+        <div
+          class="absolute -inset-6 bg-brand-brown/5 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-700">
+        </div>
+        <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+          <img src="assets/services/pedicure.jpg" alt="Pedicure"
+            class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 5: Silk Waxing -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-16 mx-10 items-center reveal">
+      <div class="relative reveal-img group">
+        <div
+          class="absolute -inset-6 bg-brand-gold/5 rounded-[3rem] -rotate-3 group-hover:rotate-0 transition-transform duration-700">
+        </div>
+        <div class="relative z-10 overflow-hidden rounded-[2.5rem] shadow-2xl">
+          <img src="assets/services/waxing.jpeg" alt="Waxing"
+            class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110" />
+          <div
+            class="absolute top-6 right-6 bg-brand-chocolate/90 backdrop-blur-sm text-brand-gold text-[10px] px-4 py-1.5 rounded-full font-bold tracking-widest uppercase shadow-lg">
+            Smooth</div>
+        </div>
+      </div>
+      <div class="text-center md:text-left reveal-img-right">
+        <h3 class="text-3xl md:text-4xl font-heading text-brand-brown mb-6">Silk Waxing</h3>
+        <p class="text-sm md:text-base leading-relaxed text-gray-600 mb-8 max-w-md mx-auto md:mx-0">
+          Experience smooth, flawless skin with our gentle and effective waxing services using premium products.
+        </p>
+        <button (click)="bookService('Silk Waxing')"
+          class="px-10 py-4 bg-brand-chocolate text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-brown hover:text-white transition-all shadow-xl hover:shadow-brand-chocolate/20 active:scale-95">Book
+          Appointment</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLLING IMAGES SECTION -->
+<section class="scroll-container reveal">
+  <div class="scroll-track">
+    <div class="scroll-item"><img src="assets/services/threading.png" alt="Threading"></div>
+    <div class="scroll-item"><img src="assets/services/hairstyle.png" alt="Hair Styling"></div>
+    <div class="scroll-item"><img src="assets/services/nail.jpg" alt="Nail Care"></div>
+    <div class="scroll-item"><img src="assets/services/pedicure.jpg" alt="Pedicure"></div>
+    <div class="scroll-item"><img src="assets/services/waxing.jpeg" alt="Waxing"></div>
+    <div class="scroll-item"><img src="assets/services/threading.png" alt="Threading"></div>
+    <div class="scroll-item"><img src="assets/services/hairstyle.png" alt="Hair Styling"></div>
+    <div class="scroll-item"><img src="assets/services/nail.jpg" alt="Nail Care"></div>
+    <div class="scroll-item"><img src="assets/services/pedicure.jpg" alt="Pedicure"></div>
+    <div class="scroll-item"><img src="assets/services/waxing.jpeg" alt="Waxing"></div>
+  </div>
+</section>
+
+<app-instagram></app-instagram>

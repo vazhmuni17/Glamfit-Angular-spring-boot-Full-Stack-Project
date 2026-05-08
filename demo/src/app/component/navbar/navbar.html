@@ -1,0 +1,149 @@
+<!-- ✅ SIDEBAR (OVERLAY MENU) -->
+<app-side-menu *ngIf="isSideBarShowing" (close)="closeSideBar()">
+</app-side-menu>
+
+<!-- ✅ MAIN NAVBAR -->
+<nav class="w-full bg-amber-50">
+
+  <!-- Offer Bar -->
+  <div class="bg-brand-chocolate text-brand-gold py-2 px-4 text-center text-xs font-bold tracking-widest">
+    <marquee behavior="scroll" direction="left" scrollamount="8">SPECIAL HAIR SPA TREATMENT JUST &#64;999 ONLY
+    </marquee>
+  </div>
+
+  <!-- Main Bar -->
+  <div
+    [ngClass]="isMenuScrolled ? 'fixed top-0 w-full z-50 bg-white shadow-xl animate__animated animate__fadeInDown' : 'relative z-40 bg-white shadow-sm'">
+    <div class="max-w-screen-2xl mx-auto px-4 xl:px-6">
+      <div class="flex items-center h-32">
+
+        <!-- LEFT: Mobile menu button + Social icons -->
+        <div class="flex items-center gap-3 flex-shrink-0 min-w-[60px] xl:min-w-[120px]">
+
+          <!-- Hamburger (mobile only) -->
+          <button type="button" class="xl:hidden cursor-pointer p-1.5" (click)="openSideBar()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+
+
+        </div>
+
+        <!-- CENTER: Nav + Logo (flex-1, centered) -->
+        <div class="flex-1 flex items-center justify-center">
+
+          <!-- Desktop Nav (hidden on mobile) -->
+          <ul
+            class="hidden xl:flex items-center gap-5 font-semibold text-brand-brown text-[14px] 2xl:text-[16px] whitespace-nowrap">
+
+            <li class="nav-link" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+              <a routerLink="home">Home</a>
+            </li>
+            <li class="nav-link" routerLinkActive="active-link">
+              <a routerLink="treatment-services">Treatment services</a>
+            </li>
+            <li class="nav-link" routerLinkActive="active-link">
+              <a routerLink="beauty-services">Beauty services</a>
+            </li>
+            <li class="nav-link" routerLinkActive="active-link">
+              <a routerLink="gallery">Gallery</a>
+            </li>
+
+            <!-- LOGO (center) -->
+            <li class="px-4 transition-transform hover:scale-110">
+              <a routerLink="home">
+                <img src="logo/logo1.png" class="h-24 w-auto object-contain" alt="Glamfit Logo" />
+              </a>
+            </li>
+
+            <li class="nav-link" [class.active-link]="router.url.includes('/packages') && !activeFragment">
+              <a routerLink="packages">Packages</a>
+            </li>
+            <li class="nav-link" routerLinkActive="active-link">
+              <a routerLink="aboutus">About Us</a>
+            </li>
+            <li class="nav-link" routerLinkActive="active-link">
+              <a routerLink="contactus">Contact</a>
+            </li>
+            <li class="nav-link" [class.active-link]="activeFragment === 'testimonials'">
+              <a [routerLink]="['/packages']" fragment="testimonials">Testimonials</a>
+            </li>
+            <li class="nav-link" [class.active-link]="activeFragment === 'faq'">
+              <a [routerLink]="['/packages']" fragment="faq">FAQ</a>
+            </li>
+
+          </ul>
+
+          <!-- Mobile Logo (centered, only visible on mobile) -->
+          <div class="xl:hidden">
+            <a routerLink="home">
+              <img src="logo/logo1.png" class="h-18 w-auto object-contain" alt="Glamfit Logo" />
+            </a>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Search + Book + Cart -->
+        <div class="flex items-center gap-2 xl:gap-4 flex-shrink-0 justify-end min-w-[60px] xl:min-w-[120px]">
+
+          <!-- Search Icon -->
+          <img src="icons/search (1).png" class="w-5 h-5 cursor-pointer hover:opacity-70 transition" alt="search"
+            (click)="openSearch()" />
+
+          <!-- Search Panel -->
+          <div *ngIf="isSearchOpen" class="fixed inset-0 z-[999] flex">
+            <div class="flex-1 bg-black/30" (click)="closeSearch()"></div>
+            <div class="bg-white w-full sm:w-[380px] h-screen p-6 flex flex-col overflow-y-auto">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-semibold text-brand-chocolate">Search</h3>
+                <button class="text-2xl text-gray-500 hover:text-black" (click)="closeSearch()">✕</button>
+              </div>
+              <div class="flex items-center gap-3 bg-[#F1F6FF] rounded-xl px-4 py-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24"
+                  stroke-width="1.8" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" placeholder="Search for services, packages..."
+                  class="w-full bg-transparent outline-none text-sm sm:text-base" [(ngModel)]="searchQuery"
+                  (keyup.enter)="goToSearch()" />
+              </div>
+              <div class="mt-6 text-sm text-gray-500">
+                Try searching for <b>Hair Spa</b>, <b>Facial</b>, <b>Packages</b>
+              </div>
+            </div>
+          </div>
+
+          <!-- Book Appointment Button (desktop only) -->
+          <a routerLink="/booking" class="hidden xl:inline-flex items-center
+                    px-4 py-2 rounded-full
+                    bg-brand-chocolate text-brand-gold
+                    text-[10px] font-bold tracking-widest uppercase whitespace-nowrap
+                    hover:bg-brand-brown hover:text-white
+                    transition-all duration-300 shadow-md active:scale-95">
+            Book Appointment
+          </a>
+
+          <!-- Cart Icon -->
+          <div class="relative cursor-pointer" routerLink="cart">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6 text-brand-chocolate hover:text-brand-brown transition" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.8" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.342 1.087.836l.383 1.437M7.5 14.25A3.75 3.75 0 0 0 11.25 18h1.5a3.75 3.75 0 0 0 3.75-3.75M7.5 14.25 5.106 5.273M7.5 14.25h9.375M5.106 5.273A1.125 1.125 0 0 0 4.07 4.5H2.25m2.856.773L18.75 6.75m0 0 .75 3M18.75 6.75l-.75 7.5" />
+            </svg>
+            <span *ngIf="cartCount > 0" class="absolute -top-2 -right-1 bg-red-600 text-white text-[10px] font-bold
+                         w-4 h-4 rounded-full flex items-center justify-center">
+              {{ cartCount }}
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</nav>
